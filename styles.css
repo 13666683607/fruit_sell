@@ -1,42 +1,25 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #f6d365, #fda085);
-    color: #333;
-    overflow-x: hidden;
+    background-color: #f9f9f9;
 }
 
 header {
-    background: linear-gradient(90deg, #ff7f50, #ff6347, #ffa500);
+    background-color: #4CAF50;
     color: white;
-    padding: 2rem 0;
+    padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
-header h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-    animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500, 0 0 30px #ff4500;
-    }
-    to {
-        text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff7f50;
-    }
+header:hover {
+    background-color: #45a049;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 1rem 0 0 0;
 }
 
 nav ul li {
@@ -47,9 +30,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -57,137 +38,86 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 3rem;
+    padding: 2rem;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    -webkit-animation: fadeIn 1s ease-in-out; /* 微信兼容 */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .fruit-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
+    animation: slideUp 1s ease-in-out;
+    -webkit-animation: slideUp 1s ease-in-out; /* 微信兼容 */
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .fruit-item {
-    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    background-color: white;
     border: 1px solid #ddd;
-    border-radius: 15px;
-    padding: 1.5rem;
-    width: 250px;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 200px;
     text-align: center;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s, box-shadow 0.4s;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease; /* 微信兼容 */
 }
 
 .fruit-item:hover {
-    transform: scale(1.1) rotate(2deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(1.05); /* 微信兼容 */
 }
 
 .fruit-item img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
-    transition: transform 0.4s;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease; /* 微信兼容 */
 }
 
 .fruit-item img:hover {
     transform: scale(1.1);
-}
-
-.fruit-item h3 {
-    margin: 1rem 0;
-    color: #333;
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.fruit-item p {
-    color: #666;
-    font-size: 1rem;
-}
-
-.fruit-item::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-    transform: rotate(45deg);
-    transition: opacity 0.4s;
-    opacity: 0;
-}
-
-.fruit-item:hover::before {
-    opacity: 1;
-}
-
-.video-container {
-    margin-top: 3rem;
-}
-
-video {
-    width: 80%;
-    max-width: 600px;
-    border: 3px solid #ddd;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-footer {
-    background: linear-gradient(90deg, #ff7f50, #ff6347, #ffa500);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-}
-
-footer p {
-    margin: 0;
-    font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-    .fruit-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .fruit-item {
-        width: 90%;
-    }
-
-    video {
-        width: 100%;
-    }
-}
-#contact {
-    background-color: #f0f0f0;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-top: 2px solid #ddd;
-}
-
-#contact h2 {
-    color: #4CAF50;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-#contact a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#contact a:hover {
-    text-decoration: underline;
+    -webkit-transform: scale(1.1); /* 微信兼容 */
 }
